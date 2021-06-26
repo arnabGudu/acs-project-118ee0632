@@ -1,6 +1,17 @@
+'''
+go to https://acs-project-118ee0632.herokuapp.com/
+or
+install requirement.txt and use "streamlit run app.py" to run web api
+'''
 import streamlit as st
 import numpy as np
 from math import sqrt
+
+
+def matrix_power(matrix):
+    M = np.matrix(input_matrix)
+    P = np.linalg.matrix_power(M, power)
+    return P
 
 
 if __name__ == '__main__':
@@ -21,7 +32,6 @@ if __name__ == '__main__':
             row_val.append(col.text_input(str(f'({row+1}, {i+1})'), key=row*size+i))
         input_matrix.append(row_val)
 
-    st.write('')
     power = st.number_input('Enter Power, K: ', min_value=1, value=1)
     if st.button('Calculate'):
         input_matrix = [[float(x) for x in row] for row in input_matrix]
